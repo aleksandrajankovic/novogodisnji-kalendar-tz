@@ -212,33 +212,18 @@ var swiper = new Swiper(".mySwiper1", {
 });
 
 
-// Učitaj GSAP
 gsap.timeline()
   .from(".meridian", {
-    duration: 1.5,
+    duration: 1.2,
     opacity: 0,
     scale: 0.8,
     y: 50,
-    ease: "back.out(1.7)" 
+    ease: "back.out(1.7)"
   })
-  .to(".meridian", {
-    duration: 0.5,
-    scale: 1.05,
-    ease: "power1.inOut",
-    repeat: 1,
-    yoyo: true 
-  })
-  .from(".calendar-title", {
-    duration: 1.2,
+  .from([".calendar-title", ".calendar-title-2"], {
+    duration: 1,
     opacity: 0,
-    x: -50,
-    skewX: 15, 
-    ease: "power4.out"
-  }, "-=0.8") 
-  .from(".calendar-title-2", {
-    duration: 1.2,
-    opacity: 0,
-    x: 50,
-    skewX: -15,
-    ease: "power4.out"
-  }, "-=1"); 
+    y: 30,
+    stagger: 0.2, // Mali razmak između naslova
+    ease: "power2.out"
+  });
