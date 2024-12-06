@@ -232,6 +232,11 @@ gsap.timeline()
     ease: "power2.out"
   });
 
+
+  //Snow and sparkle animation
+
+// Snow and sparkle animation
+
 // Generička funkcija za kreiranje i animiranje elemenata
 const container = document.querySelector('.snow-container');
 
@@ -272,65 +277,87 @@ function initEffects(effectConfigs) {
   });
 }
 
-  
-  // Konfiguracije efekata
-  const effects = [
-    {
-      type: 'snowflake',
-      count: 80,
-      config: {
-        symbol: '❄',
-        sizeRange: 20,
-        minSize: 10,
-        opacityRange: 1,
-        minOpacity: 0.5,
-        offsetY: 50,
-        horizontalRange: 200,
-        durationRange: 10,
-        minDuration: 5,
-        delayRange: 10,
-      },
-    },
-    {
-      type: 'sparkle',
-      count: 50,
-      config: {
-        symbol: '✦',
-        sizeRange: 15,
-        minSize: 5,
-        opacityRange: 0.8,
-        minOpacity: 0.2,
-        offsetY: 50,
-        horizontalRange: 100,
-        durationRange: 4,
-        minDuration: 3,
-        delayRange: 5,
-        fadeOut: true,
-      },
-    },
-    {
-      type: 'glow',
-      count: 20,
-      config: {
-        symbol: '',
-        sizeRange: 50,
-        minSize: 20,
-        opacityRange: 1,
-        minOpacity: 0.5,
-        offsetY: 0,
-        horizontalRange: 0,
-        durationRange: 2,
-        minDuration: 1,
-        delayRange: 2,
-        fadeOut: true,
-      },
-    },
-  ];
-  
-  // Pokretanje svih efekata
+// Funkcija za prilagođavanje efekata na osnovu širine ekrana
+function adjustEffectsForScreenSize(effects) {
+  const isMobile = window.innerWidth <= 600; // Proverite da li je širina ekrana manja ili jednaka 600px
+
+  // Prilagodite broj snežnih čestica za mobilne uređaje
+  if (isMobile) {
+    effects.forEach(effect => {
+      if (effect.type === 'snowflake') {
+        effect.count = 40; // Smanjite broj snežnih čestica na mobilnim uređajima
+      }
+    });
+  } else {
+    effects.forEach(effect => {
+      if (effect.type === 'snowflake') {
+        effect.count = 80; // Povratak na originalni broj čestica za desktop
+      }
+    });
+  }
+
+  // Pokrenite efekat sa ažuriranim konfiguracijama
   initEffects(effects);
-  
-  
-  
-  
-  
+}
+
+// Konfiguracije efekata
+const effects = [
+  {
+    type: 'snowflake',
+    count: 80, // Početni broj snežnih čestica
+    config: {
+      symbol: '❄',
+      sizeRange: 20,
+      minSize: 10,
+      opacityRange: 1,
+      minOpacity: 0.5,
+      offsetY: 50,
+      horizontalRange: 200,
+      durationRange: 10,
+      minDuration: 5,
+      delayRange: 10,
+    },
+  },
+  {
+    type: 'sparkle',
+    count: 50,
+    config: {
+      symbol: '✦',
+      sizeRange: 15,
+      minSize: 5,
+      opacityRange: 0.8,
+      minOpacity: 0.2,
+      offsetY: 50,
+      horizontalRange: 100,
+      durationRange: 4,
+      minDuration: 3,
+      delayRange: 5,
+      fadeOut: true,
+    },
+  },
+  {
+    type: 'glow',
+    count: 20,
+    config: {
+      symbol: '',
+      sizeRange: 50,
+      minSize: 20,
+      opacityRange: 1,
+      minOpacity: 0.5,
+      offsetY: 0,
+      horizontalRange: 0,
+      durationRange: 2,
+      minDuration: 1,
+      delayRange: 2,
+      fadeOut: true,
+    },
+  },
+];
+
+// Pokrenite efekat sa odgovarajućim brojem snežnih čestica
+adjustEffectsForScreenSize(effects);
+
+// Ako se prozor promeni, ponovo prilagodite efekat
+window.addEventListener('resize', function() {
+  adjustEffectsForScreenSize(effects);
+});
