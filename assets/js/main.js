@@ -212,8 +212,12 @@ var swiper = new Swiper(".mySwiper1", {
 });
 
 
+// Odredite koja klasa će biti animirana na osnovu širine ekrana
+const isMobile = window.innerWidth <= 895; // Možete promeniti vrednost na odgovarajući breakpoint
+const meridianClass = isMobile ? '.meridian1' : '.meridian';
+
 gsap.timeline()
-  .from(".meridian", {
+  .from(meridianClass, {
     duration: 1.2,
     opacity: 0,
     scale: 0.8,
@@ -228,45 +232,46 @@ gsap.timeline()
     ease: "power2.out"
   });
 
-  const container = document.querySelector('.snow-container');
+// Generička funkcija za kreiranje i animiranje elemenata
+const container = document.querySelector('.snow-container');
 
-  // Generička funkcija za kreiranje i animiranje elemenata
-  function createEffect(type, config) {
-    const element = document.createElement('div');
-    element.classList.add(type);
-    element.textContent = config.symbol || ''; // Simbol, ako postoji
-  
-    // Nasumična početna pozicija i stilovi
-    element.style.left = `${Math.random() * window.innerWidth}px`;
-    element.style.top = `${Math.random() * -200}px`;
-    element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
-    element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
-  
-    container.appendChild(element);
-  
-    // Animacija sa GSAP
-    gsap.to(element, {
-      y: window.innerHeight + config.offsetY, // Pada ispod ekrana
-      x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
-      duration: Math.random() * config.durationRange + config.minDuration,
-      opacity: config.fadeOut ? 0 : element.style.opacity, // Opcija za postepeno nestajanje
-      ease: "none",
-      delay: Math.random() * config.delayRange,
-      onComplete: () => {
-        element.remove();
-        createEffect(type, config); // Ponovno kreiranje elementa
-      },
-    });
-  }
-  
-  // Inicijalizacija efekata
-  function initEffects(effectConfigs) {
-    effectConfigs.forEach(({ type, count, config }) => {
-      for (let i = 0; i < count; i++) {
-        createEffect(type, config);
-      }
-    });
-  }
+function createEffect(type, config) {
+  const element = document.createElement('div');
+  element.classList.add(type);
+  element.textContent = config.symbol || ''; // Simbol, ako postoji
+
+  // Nasumična početna pozicija i stilovi
+  element.style.left = `${Math.random() * window.innerWidth}px`;
+  element.style.top = `${Math.random() * -200}px`;
+  element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
+  element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
+
+  container.appendChild(element);
+
+  // Animacija sa GSAP
+  gsap.to(element, {
+    y: window.innerHeight + config.offsetY, // Pada ispod ekrana
+    x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
+    duration: Math.random() * config.durationRange + config.minDuration,
+    opacity: config.fadeOut ? 0 : element.style.opacity, // Opcija za postepeno nestajanje
+    ease: "none",
+    delay: Math.random() * config.delayRange,
+    onComplete: () => {
+      element.remove();
+      createEffect(type, config); // Ponovno kreiranje elementa
+    },
+  });
+}
+
+// Inicijalizacija efekata
+function initEffects(effectConfigs) {
+  effectConfigs.forEach(({ type, count, config }) => {
+    for (let i = 0; i < count; i++) {
+      createEffect(type, config);
+    }
+  });
+}
+
   
   // Konfiguracije efekata
   const effects = [
