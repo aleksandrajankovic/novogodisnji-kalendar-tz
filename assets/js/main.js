@@ -281,17 +281,21 @@ function initEffects(effectConfigs) {
 function adjustEffectsForScreenSize(effects) {
   const isMobile = window.innerWidth <= 600; // Proverite da li je širina ekrana manja ili jednaka 600px
 
-  // Prilagodite broj snežnih čestica za mobilne uređaje
+  // Prilagodite broj snežnih čestica i veličinu za mobilne uređaje
   if (isMobile) {
     effects.forEach(effect => {
       if (effect.type === 'snowflake') {
         effect.count = 40; // Smanjite broj snežnih čestica na mobilnim uređajima
+        effect.config.sizeRange = 10; // Smanjite veličinu pahulja na mobilnim uređajima
+        effect.config.minSize = 5; // Smanjite minimalnu veličinu pahulja na mobilnim uređajima
       }
     });
   } else {
     effects.forEach(effect => {
       if (effect.type === 'snowflake') {
         effect.count = 80; // Povratak na originalni broj čestica za desktop
+        effect.config.sizeRange = 20; // Veća veličina pahulja za desktop
+        effect.config.minSize = 10; // Veća minimalna veličina pahulja za desktop
       }
     });
   }
@@ -307,8 +311,8 @@ const effects = [
     count: 80, // Početni broj snežnih čestica
     config: {
       symbol: '❄',
-      sizeRange: 20,
-      minSize: 10,
+      sizeRange: 20, // Početna veličina pahulja
+      minSize: 10, // Minimalna veličina pahulja
       opacityRange: 1,
       minOpacity: 0.5,
       offsetY: 50,
@@ -354,10 +358,11 @@ const effects = [
   },
 ];
 
-// Pokrenite efekat sa odgovarajućim brojem snežnih čestica
+// Pokrenite efekat sa odgovarajućim brojem snežnih čestica i veličinom
 adjustEffectsForScreenSize(effects);
 
 // Ako se prozor promeni, ponovo prilagodite efekat
 window.addEventListener('resize', function() {
   adjustEffectsForScreenSize(effects);
 });
+
