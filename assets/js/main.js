@@ -281,9 +281,9 @@ gsap.timeline()
         minOpacity: 0.5,
         offsetY: 50,
         horizontalRange: 200,
-        durationRange: 5,
+        durationRange: 10,
         minDuration: 5,
-        delayRange: 5,
+        delayRange: 10,
       },
     },
     {

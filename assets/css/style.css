@@ -1214,6 +1214,26 @@ i {
   justify-content: right;;
   color:#cd1b1b;
 }
+/* Animacija zatvaranja */
+#modal.active {
+  top: 0%;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+#modal.active.moveOut {
+  animation: fadeOut 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 #modal {
 
   position: fixed;
@@ -1276,6 +1296,12 @@ i {
   border-radius: 10px;
   margin: 0 auto;
   transform: scale(0);
+}
+
+
+/* Stil za modal kada se zatvara */
+#modal.closing .wrapper .content .box {
+  animation: closeModal 0.5s forwards; /* Animacija zatvaranja sa trajanjem 0.5s */
 }
 #modal .wrapper .content .box h2 {
   font-size: 30px;
@@ -1356,6 +1382,7 @@ i {
   transition: 0.25s 0s ease-in-out;
   background: white;
 }
+
 
 #calendar {
   width: 70%;
