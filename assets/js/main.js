@@ -247,16 +247,16 @@ function createEffect(type, config) {
 
   // Nasumična početna pozicija i stilovi
   element.style.left = `${Math.random() * window.innerWidth}px`;
-  element.style.top = `${Math.random() * -200}px`;
+  element.style.top = `${Math.random() * -200}px`; // Startna pozicija sa gornje strane
   element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
   element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
 
   container.appendChild(element);
 
-  // Animacija sa GSAP
+  // Animacija sa GSAP koja omogućava horizontalno pomeranje levo-desno
   gsap.to(element, {
     y: window.innerHeight + config.offsetY, // Pada ispod ekrana
-    x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
+    x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`, // Horizontalno pomeranje
     duration: Math.random() * config.durationRange + config.minDuration,
     opacity: config.fadeOut ? 0 : element.style.opacity, // Opcija za postepeno nestajanje
     ease: "none",
@@ -285,7 +285,7 @@ function adjustEffectsForScreenSize(effects) {
   if (isMobile) {
     effects.forEach(effect => {
       if (effect.type === 'snowflake') {
-        effect.count = 40; // Smanjite broj snežnih čestica na mobilnim uređajima
+        effect.count = 30; // Smanjite broj snežnih čestica na mobilnim uređajima
         effect.config.sizeRange = 10; // Smanjite veličinu pahulja na mobilnim uređajima
         effect.config.minSize = 5; // Smanjite minimalnu veličinu pahulja na mobilnim uređajima
       }
@@ -293,7 +293,7 @@ function adjustEffectsForScreenSize(effects) {
   } else {
     effects.forEach(effect => {
       if (effect.type === 'snowflake') {
-        effect.count = 80; // Povratak na originalni broj čestica za desktop
+        effect.count = 40; // Povratak na originalni broj čestica za desktop
         effect.config.sizeRange = 20; // Veća veličina pahulja za desktop
         effect.config.minSize = 10; // Veća minimalna veličina pahulja za desktop
       }
@@ -308,7 +308,7 @@ function adjustEffectsForScreenSize(effects) {
 const effects = [
   {
     type: 'snowflake',
-    count: 80, // Početni broj snežnih čestica
+    count: 40, // Početni broj snežnih čestica
     config: {
       symbol: '❄',
       sizeRange: 20, // Početna veličina pahulja
@@ -316,15 +316,15 @@ const effects = [
       opacityRange: 1,
       minOpacity: 0.5,
       offsetY: 50,
-      horizontalRange: 200,
+      horizontalRange: 200, // Širina po kojoj se pahulje pomeraju levo-desno
       durationRange: 10,
-      minDuration: 5,
+      minDuration:10,
       delayRange: 10,
     },
   },
   {
     type: 'sparkle',
-    count: 50,
+    count: 40,
     config: {
       symbol: '✦',
       sizeRange: 15,
@@ -334,7 +334,7 @@ const effects = [
       offsetY: 50,
       horizontalRange: 100,
       durationRange: 4,
-      minDuration: 3,
+      minDuration: 10,
       delayRange: 5,
       fadeOut: true,
     },
