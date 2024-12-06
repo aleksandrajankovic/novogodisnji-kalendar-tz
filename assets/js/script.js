@@ -69,28 +69,28 @@ $(".wrapper").click(function () {
 
 // snow effect customizations
 
-const snow = ['❄', '❅', '❆'];
-const colors = ['#fff', '#fff', '#fff', '#fff', '#eee'];
-const flakes = 20;
-const container = document.querySelector('.snow');
-const containerWidth = container?.clientWidth;
-const snowflakes = [];
-for (let i = 0; i < flakes; i++) {
-  const flake = document.createElement('div');
-  flake.innerHTML = snow[Math.floor(Math.random() * snow.length)];
-  flake.classList.add('snowflake');
-  flake.style.position = 'absolute';
-  flake.style.left = `${Math.random() * containerWidth}px`;
-  flake.style.fontSize = `${Math.floor(Math.random() * 30) + 10}px`;
-  flake.style.color = colors[Math.floor(Math.random() * colors.length)];
-  flake.style.animationDelay = `${Math.random() * 12}s`;
-  container.appendChild(flake);
-  snowflakes.push(flake);
-}
+// const snow = ['❄', '❅', '❆'];
+// const colors = ['#fff', '#fff', '#fff', '#fff', '#eee'];
+// const flakes = 20;
+// const container = document.querySelector('.snow');
+// const containerWidth = container?.clientWidth;
+// const snowflakes = [];
+// for (let i = 0; i < flakes; i++) {
+//   const flake = document.createElement('div');
+//   flake.innerHTML = snow[Math.floor(Math.random() * snow.length)];
+//   flake.classList.add('snowflake');
+//   flake.style.position = 'absolute';
+//   flake.style.left = `${Math.random() * containerWidth}px`;
+//   flake.style.fontSize = `${Math.floor(Math.random() * 30) + 10}px`;
+//   flake.style.color = colors[Math.floor(Math.random() * colors.length)];
+//   flake.style.animationDelay = `${Math.random() * 12}s`;
+//   container.appendChild(flake);
+//   snowflakes.push(flake);
+// }
 
-$(document).snowfall({
-  flakeCount: 100,
-  collection: ".collectonme",
-  maxSpeed: 10,
-});
+// $(document).snowfall({
+//   flakeCount: 100,
+//   collection: ".collectonme",
+//   maxSpeed: 10,
+// });
 

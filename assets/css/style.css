@@ -1534,21 +1534,7 @@ i {
 #modal .wrapper .content .box p:last-of-type {
   font-size: 14px;
 }
-.snow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 95%;
-  pointer-events: none;
-  z-index: 999;
-  overflow: visible;
-}
-.snowflake {
-  opacity: 0;
-  animation: fall 20s ease-out infinite, move 4s ease-in-out infinite,
-    fade-in 1s ease-in forwards;
-}
+
 @keyframes fall {
   from {
     top: 0;
@@ -1604,7 +1590,7 @@ i {
 }
 .calendar-box {
 
-  margin: 5rem auto 3rem auto;
+  margin: 6.8rem auto 3rem auto;
 }
 .gift {
   background-image: url(../../img/gift-mob.png);
@@ -2824,21 +2810,7 @@ i {
   }
 }
 
-.snow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 95%;
-  pointer-events: none;
-  z-index: 999;
-  overflow: visible;
-}
-.snowflake {
-  opacity: 0;
-  animation: fall 20s ease-out infinite, move 4s ease-in-out infinite,
-    fade-in 1s ease-in forwards;
-}
+
 @keyframes fall {
   from {
     top: 0;
@@ -2924,8 +2896,8 @@ i {
 
 }
 .copyright p {
-  font-size: 0.9rem;
-  color: #f2f2f2;
+  font-size: 12px;
+  color: #cacaca;
   text-transform: uppercase;
 }
 footer {
@@ -2987,11 +2959,15 @@ footer {
 .payments h3{
   line-height: normal;
   color: #fff;
+  font-size: 14px;
+  line-height: 15px;
+
 }
 .payments h4 {
-  line-height: 1.9rem;
+  line-height: 15px;
   font-weight: normal;
   color: #fff;
+  font-size: 14px;
   
 }
 .payments-icons img {
@@ -3013,12 +2989,14 @@ footer {
   justify-content: center;
 }
 .sponsorships-text h3 {
-
+font-size: 14px;
+line-height: 15px;
   color: #fff;
 }
 .sponsorships-text h4{
 
-  line-height: 1.9rem;
+  line-height: 15px;
+  font-size: 14px;
   color: #fff;
   
   font-weight: normal;
@@ -3054,7 +3032,7 @@ footer {
   text-transform: uppercase;
   color: #fff;
   font-family: "Roboto Condensed",Helvetica,Arial,sans-serif;
-  font-size: 1.1rem;
+  font-size: 14px
   
 }
 .links li:last-child {
@@ -3219,5 +3197,36 @@ footer {
       padding: 20px 0;
   }
  
+}
+.snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.snowflake, .sparkle, .glow {
+  position: absolute;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.snowflake {
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.sparkle {
+  color: gold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.glow {
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
 }
 

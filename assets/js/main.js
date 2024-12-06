@@ -227,3 +227,105 @@ gsap.timeline()
     stagger: 0.2, // Mali razmak između naslova
     ease: "power2.out"
   });
+
+  const container = document.querySelector('.snow-container');
+
+  // Generička funkcija za kreiranje i animiranje elemenata
+  function createEffect(type, config) {
+    const element = document.createElement('div');
+    element.classList.add(type);
+    element.textContent = config.symbol || ''; // Simbol, ako postoji
+  
+    // Nasumična početna pozicija i stilovi
+    element.style.left = `${Math.random() * window.innerWidth}px`;
+    element.style.top = `${Math.random() * -200}px`;
+    element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
+    element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
+  
+    container.appendChild(element);
+  
+    // Animacija sa GSAP
+    gsap.to(element, {
+      y: window.innerHeight + config.offsetY, // Pada ispod ekrana
+      x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
+      duration: Math.random() * config.durationRange + config.minDuration,
+      opacity: config.fadeOut ? 0 : element.style.opacity, // Opcija za postepeno nestajanje
+      ease: "none",
+      delay: Math.random() * config.delayRange,
+      onComplete: () => {
+        element.remove();
+        createEffect(type, config); // Ponovno kreiranje elementa
+      },
+    });
+  }
+  
+  // Inicijalizacija efekata
+  function initEffects(effectConfigs) {
+    effectConfigs.forEach(({ type, count, config }) => {
+      for (let i = 0; i < count; i++) {
+        createEffect(type, config);
+      }
+    });
+  }
+  
+  // Konfiguracije efekata
+  const effects = [
+    {
+      type: 'snowflake',
+      count: 80,
+      config: {
+        symbol: '❄',
+        sizeRange: 20,
+        minSize: 10,
+        opacityRange: 1,
+        minOpacity: 0.5,
+        offsetY: 50,
+        horizontalRange: 200,
+        durationRange: 5,
+        minDuration: 5,
+        delayRange: 5,
+      },
+    },
+    {
+      type: 'sparkle',
+      count: 50,
+      config: {
+        symbol: '✦',
+        sizeRange: 15,
+        minSize: 5,
+        opacityRange: 0.8,
+        minOpacity: 0.2,
+        offsetY: 50,
+        horizontalRange: 100,
+        durationRange: 4,
+        minDuration: 3,
+        delayRange: 5,
+        fadeOut: true,
+      },
+    },
+    {
+      type: 'glow',
+      count: 20,
+      config: {
+        symbol: '',
+        sizeRange: 50,
+        minSize: 20,
+        opacityRange: 1,
+        minOpacity: 0.5,
+        offsetY: 0,
+        horizontalRange: 0,
+        durationRange: 2,
+        minDuration: 1,
+        delayRange: 2,
+        fadeOut: true,
+      },
+    },
+  ];
+  
+  // Pokretanje svih efekata
+  initEffects(effects);
+  
+  
+  
+  
+  
