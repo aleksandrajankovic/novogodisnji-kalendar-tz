@@ -278,13 +278,13 @@ function adjustEffectsForScreenSize(effects) {
   effects.forEach(effect => {
     if (isMobile) {
       if (effect.type === 'snowflake') {
-        effect.count = 10; // Smanjite broj snežnih čestica na mobilnim uređajima
+        effect.count = 5; // Smanjite broj snežnih čestica na mobilnim uređajima
         effect.config.sizeRange = 8; // Smanjite veličinu pahulja na mobilnim uređajima
         effect.config.minSize = 5; // Smanjite minimalnu veličinu pahulja na mobilnim uređajima
         effect.config.durationRange = 15; // Produžite trajanje animacije da usporite padanje
         effect.config.minDuration = 10; // Minimalno trajanje za sporije padanje
       } else if (effect.type === 'sparkle') {
-        effect.count = 15; // Smanjite broj sparkles na mobilnim uređajima
+        effect.count = 5; // Smanjite broj sparkles na mobilnim uređajima
         effect.config.sizeRange = 10; // Smanjite veličinu sparkles na mobilnim uređajima
         effect.config.minSize = 5; // Minimalna veličina sparkles
         effect.config.durationRange = 10; // Produžite trajanje za sporije kretanje
