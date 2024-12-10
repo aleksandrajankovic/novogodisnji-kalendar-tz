@@ -211,9 +211,9 @@ var swiper = new Swiper(".mySwiper1", {
   },
 });
 
+//Headline animation
 
-// Odredite koja klasa će biti animirana na osnovu širine ekrana
-const isMobile = window.innerWidth <= 895; // Možete promeniti vrednost na odgovarajući breakpoint
+const isMobile = window.innerWidth <= 895; 
 const meridianClass = isMobile ? '.meridian1' : '.meridian';
 
 gsap.timeline()
@@ -228,24 +228,23 @@ gsap.timeline()
     duration: 1,
     opacity: 0,
     y: 30,
-    stagger: 0.2, // Mali razmak između naslova
+    stagger: 0.2, 
     ease: "power2.out"
   });
 
 
-  //Snow and sparkle animation
+
 
 // Snow and sparkle animation
 
-// Generička funkcija za kreiranje i animiranje elemenata
+
 const container = document.querySelector('.snow-container');
 
 function createEffect(type, config) {
   const element = document.createElement('div');
   element.classList.add(type);
-  element.textContent = config.symbol || ''; // Simbol, ako postoji
+  element.textContent = config.symbol || ''; 
 
-  // Nasumična početna pozicija i stilovi
   element.style.left = `${Math.random() * window.innerWidth}px`;
   element.style.top = `${Math.random() * -200}px`; // Startna pozicija sa gornje strane
   element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
@@ -253,22 +252,20 @@ function createEffect(type, config) {
 
   container.appendChild(element);
 
-  // Animacija sa GSAP koja omogućava horizontalno pomeranje levo-desno
   gsap.to(element, {
-    y: window.innerHeight + config.offsetY, // Pada ispod ekrana
-    x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`, // Horizontalno pomeranje
+    y: window.innerHeight + config.offsetY,
+    x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
     duration: Math.random() * config.durationRange + config.minDuration,
-    opacity: config.fadeOut ? 0 : element.style.opacity, // Opcija za postepeno nestajanje
+    opacity: config.fadeOut ? 0 : element.style.opacity, 
     ease: "none",
     delay: Math.random() * config.delayRange,
     onComplete: () => {
       element.remove();
-      createEffect(type, config); // Ponovno kreiranje elementa
+      createEffect(type, config); 
     },
   });
 }
 
-// Inicijalizacija efekata
 function initEffects(effectConfigs) {
   effectConfigs.forEach(({ type, count, config }) => {
     for (let i = 0; i < count; i++) {
@@ -277,15 +274,15 @@ function initEffects(effectConfigs) {
   });
 }
 
-// Funkcija za prilagođavanje efekata na osnovu širine ekrana
-function adjustEffectsForScreenSize(effects) {
-  const isMobile = window.innerWidth <= 600; // Proverite da li je širina ekrana manja ili jednaka 600px
 
-  // Prilagodite broj snežnih čestica i veličinu za mobilne uređaje
+function adjustEffectsForScreenSize(effects) {
+  const isMobile = window.innerWidth <= 600; 
+
+
   if (isMobile) {
     effects.forEach(effect => {
       if (effect.type === 'snowflake') {
-        effect.count = 30; // Smanjite broj snežnih čestica na mobilnim uređajima
+        effect.count = 15; // Smanjite broj snežnih čestica na mobilnim uređajima
         effect.config.sizeRange = 10; // Smanjite veličinu pahulja na mobilnim uređajima
         effect.config.minSize = 5; // Smanjite minimalnu veličinu pahulja na mobilnim uređajima
       }
@@ -300,7 +297,6 @@ function adjustEffectsForScreenSize(effects) {
     });
   }
 
-  // Pokrenite efekat sa ažuriranim konfiguracijama
   initEffects(effects);
 }
 
