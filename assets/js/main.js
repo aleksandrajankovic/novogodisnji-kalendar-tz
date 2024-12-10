@@ -246,7 +246,7 @@ function createEffect(type, config) {
   element.textContent = config.symbol || ''; 
 
   element.style.left = `${Math.random() * window.innerWidth}px`;
-  element.style.top = `${Math.random() * -200}px`; // Startna pozicija sa gornje strane
+  element.style.top = `${Math.random() * -window.innerHeight - config.startOffset}px`; // Startna pozicija sa gornje strane
   element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
   element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
 
@@ -259,10 +259,7 @@ function createEffect(type, config) {
     opacity: config.fadeOut ? 0 : element.style.opacity, 
     ease: "none",
     delay: Math.random() * config.delayRange,
-    onComplete: () => {
-      element.remove();
-      createEffect(type, config); 
-    },
+    repeat: -1, // Beskonačno ponavljanje
   });
 }
 
@@ -330,6 +327,7 @@ const effects = [
       durationRange: 10,
       minDuration:10,
       delayRange: 10,
+      startOffset: 100,
     },
   },
   {
@@ -347,6 +345,7 @@ const effects = [
       minDuration: 10,
       delayRange: 5,
       fadeOut: true,
+      startOffset: 100,
     },
   },
   {
