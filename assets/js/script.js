@@ -8,6 +8,15 @@ const giftImages = [
   'img/icon6.png',
   'img/icon7.png',
   'img/icon8.png',
+  'img/icon9.png',
+  'img/icon10.png',
+  'img/icon11.png',
+  'img/icon12.png',
+  'img/icon13.png',
+  'img/icon14.png',
+  'img/icon15.png',
+  'img/icon16.png',
+  'img/icon17.png',
 ];
 
 var d = new Date();
