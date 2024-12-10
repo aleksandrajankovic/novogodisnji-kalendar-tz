@@ -276,29 +276,43 @@ function initEffects(effectConfigs) {
 
 
 function adjustEffectsForScreenSize(effects) {
-  const isMobile = window.innerWidth <= 600; 
+  const isMobile = window.innerWidth <= 600;
 
-
-  if (isMobile) {
-    effects.forEach(effect => {
+  effects.forEach(effect => {
+    if (isMobile) {
       if (effect.type === 'snowflake') {
-        effect.count = 15; // Smanjite broj snežnih čestica na mobilnim uređajima
-        effect.config.sizeRange = 10; // Smanjite veličinu pahulja na mobilnim uređajima
+        effect.count = 10; // Smanjite broj snežnih čestica na mobilnim uređajima
+        effect.config.sizeRange = 8; // Smanjite veličinu pahulja na mobilnim uređajima
         effect.config.minSize = 5; // Smanjite minimalnu veličinu pahulja na mobilnim uređajima
+        effect.config.durationRange = 15; // Produžite trajanje animacije da usporite padanje
+        effect.config.minDuration = 10; // Minimalno trajanje za sporije padanje
+      } else if (effect.type === 'sparkle') {
+        effect.count = 15; // Smanjite broj sparkles na mobilnim uređajima
+        effect.config.sizeRange = 10; // Smanjite veličinu sparkles na mobilnim uređajima
+        effect.config.minSize = 5; // Minimalna veličina sparkles
+        effect.config.durationRange = 10; // Produžite trajanje za sporije kretanje
+        effect.config.minDuration = 5; // Minimalno trajanje za sporije kretanje
       }
-    });
-  } else {
-    effects.forEach(effect => {
+    } else {
       if (effect.type === 'snowflake') {
-        effect.count = 40; // Povratak na originalni broj čestica za desktop
+        effect.count = 40; // Originalni broj čestica za desktop
         effect.config.sizeRange = 20; // Veća veličina pahulja za desktop
         effect.config.minSize = 10; // Veća minimalna veličina pahulja za desktop
+        effect.config.durationRange = 10; // Originalno trajanje za desktop
+        effect.config.minDuration = 5; // Originalno minimalno trajanje za desktop
+      } else if (effect.type === 'sparkle') {
+        effect.count = 40; // Originalni broj sparkles za desktop
+        effect.config.sizeRange = 15; // Originalna veličina sparkles
+        effect.config.minSize = 5; // Minimalna veličina sparkles
+        effect.config.durationRange = 6; // Originalno trajanje za desktop
+        effect.config.minDuration = 3; // Originalno minimalno trajanje za desktop
       }
-    });
-  }
+    }
+  });
 
   initEffects(effects);
 }
+
 
 // Konfiguracije efekata
 const effects = [
