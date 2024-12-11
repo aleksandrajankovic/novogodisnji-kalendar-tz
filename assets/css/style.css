@@ -1149,7 +1149,7 @@ i {
 }
 #calendar .week .day {
   width: 14.285714%;
-  padding-bottom: 8.285714%;;
+  padding-bottom: 7.285714%;;
   border-right: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: 1px solid #fff;
@@ -1589,7 +1589,22 @@ line-height: 15px;
   background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
   border-radius: 50%;
 }
-
+.list-top h3 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: left;
+  color: #d7d7d7;
+  margin-bottom: 30px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+.no-click {
+  pointer-events: none;
+  
+}
 /*RESPONSIVE*/
 
 @media (max-width: 1766px) {
@@ -1941,7 +1956,7 @@ line-height: 15px;
       padding: 20px 0;
   }
   .links ul li a {
-      font-size: 1rem;
+      font-size: 0.8rem;
   }
   .copyright p {
     font-size: 0.7rem;
