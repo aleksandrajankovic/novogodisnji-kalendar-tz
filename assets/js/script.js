@@ -17,11 +17,12 @@ const giftImages = [
   'img/icon17.png',
 ];
 
+
 const promotions = {
   1: {
     title: "Win&Go cashback 100%!",
     subtitle: "Igrajući Win&Go brojeve ne mozeš izgubiti!",
-    image: "images/monday-bg.jpg",
+    image: "../assets/images/header/image1.jpg",
     description: [
       "Promocija je aktivna za Win&Go brojeve.",
       "100% cashback se uplaćuje na ukupni gubitak na Win&Go tiketima koji ispunjavaju pravila promocije",
@@ -33,6 +34,7 @@ const promotions = {
   2: {
     title: "Sport cashback!",
     subtitle: "Odigraj tiket i ukoliko je nedobitan, dobijaš 50% cashback na bonus račun!",
+    image: "../assets/images/header/image2.jpg",
     description: [
       "U promociji učestvuju svi tiketi koji su uplaćeni i rezultovani u toku trajanja iste.",
       "Promocija važi za hronoliški prvi tiket u periodu trajanja.",
@@ -45,6 +47,7 @@ const promotions = {
   3: {
     title: "Kartica donosi dodatnih 20% bonusa!",
     subtitle: "Uplati depozit putem kartice i čeka te 40% bonusa na prvu uplatu!",
+    image: "../assets/images/header/image3.jpg",
     description: [
       "Svake srijede, na prvu uplatu putem kartice u iznosu od 10€, ostvarujete pravo na bonus od 20%. ",
       "Bonus će biti uplaćen sljedećeg dana do 11h.",
@@ -56,6 +59,7 @@ const promotions = {
   4: {
     title: "Aviator kiša freebet-ova!",
     subtitle: "Uplati depozit u minimalnom iznosu od 5€, izvrti ga na kazinu kako bi dobio freebet-ove na Aviatoru!",
+    image: "../assets/images/header/image4.jpg",
     description: [
       "Uplati depozit u minimalnom iznosu od 5€, izvrti ga na kazinu kako bi dobio freebet-ove na Aviatoru! ",
       "Svaki dodijeljeni Freebet je vrijedan 0.10€.",
@@ -67,6 +71,7 @@ const promotions = {
   5: {
     title: "Igra dana GG&3+",
     subtitle: "Petak je dan za golove! Samo danas odigraj najviše tiketa koji sadrže igru GG&3+ i kvalifikuj se za bonus.",
+    image: "../assets/images/header/image5.jpg",
     description: [
       "20 igrača koji budu imali najveći broj tiketa koji sadrže igru GG&3+ ( minimum 1 događaj sa ovom igrom po tiketu) dobijaju po 20€ bonusa",
       "Minimalna uplata 1€.",
@@ -80,6 +85,7 @@ const promotions = {
   6: {
     title: "Uzleti uz Super Heli!",
     subtitle: "Uplati depozit u minimalnom iznosu od 5€, izvrti ga na kazinu jer te sjutra očekuju freebet-ovi na popularnoj igri Super Heli!",
+    image: "../assets/images/header/image6.jpg",
     description: [
       "U toku promocije potrebno je da igrač uplati min. 5€ I da deposit iskoristi na kazino ponudi kako bi dobio 15 freebet-ova.",
       "Svaki dodijeljeni Freebet je vrijedan 0.10€.",
@@ -90,6 +96,7 @@ const promotions = {
   7: {
     title: "Dan za spinove",
     subtitle: "Svake nedjelje, uplatom depozita putem SST terminala ili u poslovnici ostvaruješ pravo na 50 besplatnih spinova!",
+    image: "../assets/images/header/image7.jpg",
     description: [
       "Minimalna uplata depozita za osvajanje spinova je 10€.",
       "Spinovi će biti uplaćen sljedećeg dana do 11h.",
@@ -100,7 +107,7 @@ const promotions = {
   8: {
     title: "Win&Go cashback 100%!",
     subtitle: "Igrajući Win&Go brojeve ne mozeš izgubiti!",
-    image: "images/monday-bg.jpg",
+    image: "../assets/images/header/image1.jpg",
     description: [
       "Promocija je aktivna za Win&Go brojeve.",
       "100% cashback se uplaćuje na ukupni gubitak na Win&Go tiketima koji ispunjavaju pravila promocije",
@@ -112,6 +119,7 @@ const promotions = {
   9: {
     title: "Sport cashback!",
     subtitle: "Odigraj tiket i ukoliko je nedobitan, dobijaš 50% cashback na bonus račun!",
+    image: "../assets/images/header/image2.jpg",
     description: [
       "U promociji učestvuju svi tiketi koji su uplaćeni i rezultovani u toku trajanja iste.",
       "Promocija važi za hronoliški prvi tiket u periodu trajanja.",
@@ -124,6 +132,7 @@ const promotions = {
   10: {
     title: "Kartica donosi dodatnih 20% bonusa!",
     subtitle: "Uplati depozit putem kartice i čeka te 40% bonusa na prvu uplatu!",
+    image: "../assets/images/header/image3.jpg",
     description: [
       "Svake srijede, na prvu uplatu putem kartice u iznosu od 10€, ostvarujete pravo na bonus od 20%. ",
       "Bonus će biti uplaćen sljedećeg dana do 11h.",
@@ -135,6 +144,7 @@ const promotions = {
   11: {
     title: "Aviator kiša freebet-ova!",
     subtitle: "Uplati depozit u minimalnom iznosu od 5€, izvrti ga na kazinu kako bi dobio freebet-ove na Aviatoru!",
+    image: "../assets/images/header/image4.jpg",
     description: [
       "Uplati depozit u minimalnom iznosu od 5€, izvrti ga na kazinu kako bi dobio freebet-ove na Aviatoru! ",
       "Svaki dodijeljeni Freebet je vrijedan 0.10€.",
@@ -146,6 +156,7 @@ const promotions = {
   12: {
     title: "Igra dana GG&3+",
     subtitle: "Petak je dan za golove! Samo danas odigraj najviše tiketa koji sadrže igru GG&3+ i kvalifikuj se za bonus.",
+    image: "../assets/images/header/image5.jpg",
     description: [
       "20 igrača koji budu imali najveći broj tiketa koji sadrže igru GG&3+ ( minimum 1 događaj sa ovom igrom po tiketu) dobijaju po 20€ bonusa",
       "Minimalna uplata 1€.",
@@ -159,6 +170,7 @@ const promotions = {
   13: {
     title: "Uzleti uz Super Heli!",
     subtitle: "Uplati depozit u minimalnom iznosu od 5€, izvrti ga na kazinu jer te sjutra očekuju freebet-ovi na popularnoj igri Super Heli!",
+    image: "../assets/images/header/image6.jpg",
     description: [
       "U toku promocije potrebno je da igrač uplati min. 5€ I da deposit iskoristi na kazino ponudi kako bi dobio 15 freebet-ova.",
       "Svaki dodijeljeni Freebet je vrijedan 0.10€.",
@@ -169,6 +181,7 @@ const promotions = {
   14: {
     title: "Dan za spinove",
     subtitle: "Svake nedjelje, uplatom depozita putem SST terminala ili u poslovnici ostvaruješ pravo na 50 besplatnih spinova!",
+    image: "../assets/images/header/image7.jpg",
     description: [
       "Minimalna uplata depozita za osvajanje spinova je 10€.",
       "Spinovi će biti uplaćen sljedećeg dana do 11h.",
@@ -358,6 +371,10 @@ function updateCalendarStates() {
 
     // Prikazujemo sadržaj u modalu
     $("#modal .wrapper .content .box").html(popupContent);
+    $(".header-flex").css("background", `url(${promo.image})`);
+    $(".header-flex").css("background-size", "cover"); // Prilagođavanje veličine slike
+    $(".header-flex").css("background-position", "center"); // Pozicija slike
+  
     togglePopup();  // Otvori popup
   });
 }
