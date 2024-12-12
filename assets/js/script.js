@@ -448,33 +448,32 @@ link:"https://meridianbet.rs/sr/kladjenje"
 };
 
 window.onload = function () {
-  // Dobijamo trenutni mesec i godinu
+  
   const today = new Date();
-  const currentMonth = today.getMonth(); // Trenutni mesec (0 - 11)
-  const currentYear = today.getFullYear(); // Trenutna godina
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear(); 
 
-  // Pozivamo funkciju da generišemo kalendar za trenutni mesec i godinu
   generateCalendar(currentMonth, currentYear);
 };
 
 function generateCalendar(month, year) {
   const calendarWeeksContainer = document.getElementById('calendar-weeks');
-  const daysInMonth = new Date(year, month + 1, 0).getDate(); // Ukupan broj dana u mesecu
-  const firstDay = new Date(year, month, 1).getDay(); // Prvi dan u mesecu (0=nedelja, 1=ponedeljak itd.)
+  const daysInMonth = new Date(year, month + 1, 0).getDate(); 
+  const firstDay = new Date(year, month, 1).getDay(); 
 
-  // Ako je prvi dan meseca nedelja (0), moramo da ga tretiramo kao početak nedelje
-  const startDay = firstDay === 0 ? 7 : firstDay; // Ako je nedelja, početak je 7 (nedelja)
 
-  // Čistimo prethodni sadržaj kalendara
+  const startDay = firstDay === 0 ? 7 : firstDay; 
+
+ 
   calendarWeeksContainer.innerHTML = '';
 
-  // Dodajemo prazne dane pre prvog dana meseca
+
   let weekHtml = '<div class="week">';
   for (let i = 1; i < startDay; i++) {
     weekHtml += '<div class="day noDate"></div>';
   }
 
-  // Dodajemo dane meseca
+
   for (let day = 1; day <= daysInMonth; day++) {
     weekHtml += `
       <div class="day" data-day="${day}" onclick="togglePopup(event)">
@@ -484,13 +483,13 @@ function generateCalendar(month, year) {
         </div>
       </div>
     `;
-    // Ako je kraj nedelje (7 dana), započinjemo novu nedelju
+  
     if ((startDay + day - 1) % 7 === 0) {
       weekHtml += '</div><div class="week">';
     }
   }
 
-  // Dodajemo prazne dane ako poslednja sedmica nije popunjena
+
   const remainingDaysInWeek = (startDay + daysInMonth - 1) % 7;
   if (remainingDaysInWeek !== 0) {
     for (let i = remainingDaysInWeek; i < 7; i++) {
@@ -498,21 +497,21 @@ function generateCalendar(month, year) {
     }
   }
 
-  // Zatvaramo poslednju sedmicu
+ 
   weekHtml += '</div>';
   calendarWeeksContainer.innerHTML = weekHtml;
 
-  // Postavljanje stanja dana
+
   updateCalendarStates(month);
 }
 
 let isAnimating = false;
 
-// Funkcija za otvaranje i zatvaranje popupa sa animacijama
+
 function togglePopup() {
   const modal = document.getElementById('modal');
   
-  if (isAnimating) return;  // Ne dozvoljava ponovno otvaranje dok traje animacija
+  if (isAnimating) return;  
   isAnimating = true;
 
   if (!modal.classList.contains('active')) {
@@ -531,7 +530,7 @@ function togglePopup() {
   }
 }
 
-// Filtriranje promocija po mesecu
+
 function filterPromotionsByMonth(month) {
   return Object.keys(promotions)
     .filter(key => promotions[key].month === month)
@@ -543,28 +542,28 @@ function filterPromotionsByMonth(month) {
 
 function updateCalendarStates(month) {
   const today = new Date(2024, 11, 30);
-  const todaysDate = today.getDate(); // Trenutni datum
-  const currentMonth = today.toLocaleString("en-US", { month: "long" }); // Trenutni mesec u tekstualnom obliku
+  const todaysDate = today.getDate(); 
+  const currentMonth = today.toLocaleString("en-US", { month: "long" }); 
   
-  // Filtriraj promocije za trenutni mesec
+
   const filteredPromotions = filterPromotionsByMonth(currentMonth);
 
-  // Selektuj sve datume u kalendaru
+
   const target = $("#calendar .week .day .date");
   let currentImageIndex = 0;
 
   target.each(function () {
-    const day = $(this).html(); // Dan u mesecu
+    const day = $(this).html(); 
     const giftElement = $(this).parent();
 
     if (todaysDate == day) {
       $(this).addClass("today");
-      giftElement.addClass("past"); // Današnji dan je klikabilan
+      giftElement.addClass("past"); 
     }
 
     if (todaysDate < day) {
-      giftElement.addClass("future"); // Budući dan je onemogućen
-      giftElement.addClass("no-click"); // Onemogući klik
+      giftElement.addClass("future");
+      giftElement.addClass("no-click");
       giftElement.css({
         'background-image': 'url(img/gift.png)',
         'background-repeat': 'no-repeat',
@@ -574,12 +573,12 @@ function updateCalendarStates(month) {
     }
 
     if (todaysDate >= day) {
-      giftElement.addClass("past"); // Prošli dan je klikabilan
+      giftElement.addClass("past"); 
 
-      // Provera da li postoji promocija za taj dan u filtriranim podacima
+      
       const promo = filteredPromotions[day];
       if (promo) {
-        // Postavljanje slike za prošli dan samo ako postoji promocija
+        
         if ($(this).siblings(".surprise").html().trim() !== "") {
           giftElement.addClass("gift-open");
 
@@ -609,21 +608,21 @@ function updateCalendarStates(month) {
 
   // Handle klikove na dane
   $(".day").click(function () {
-    const dayId = $(this).data("day"); // Uzimamo data-day atribut sa klika
+    const dayId = $(this).data("day"); 
 
-    // Proveravamo da li je kliknut dan koji je 'future' ili 'no-click'
+   
     if ($(this).hasClass("future") || $(this).hasClass("no-click")) {
-      return; // Ne dozvoljava klik ako je dan sa klasom 'future' ili 'no-click'
+      return; // 
     }
 
-    const promo = filteredPromotions[dayId]; // Tražimo promociju za određeni dan
+    const promo = filteredPromotions[dayId];
 
     if (!promo) {
-      console.log("Nema promocije za ovaj dan."); // Ako nema promocije, ne otvaraj popup
+      console.log("Nema promocije za ovaj dan."); 
       return;
     }
 
-    // Generišemo sadržaj za popup
+    // Generišem sadržaj za popup
     const popupContent = `
       <div class="header-flex">
         <h2><i>${promo.title}</i></h2>
@@ -640,13 +639,13 @@ function updateCalendarStates(month) {
       <a href="${promo.link}" class="promo-link">Registruj se</a>
     `;
 
-    // Prikazujemo sadržaj u modalu
+    // Prikazujem sadržaj u modalu
     $("#modal .wrapper .content .box").html(popupContent);
     $(".header-flex").css("background", `url(${promo.image})`);
-    $(".header-flex").css("background-size", "cover"); // Prilagođavanje veličine slike
-    $(".header-flex").css("background-position", "center"); // Pozicija slike
+    $(".header-flex").css("background-size", "cover"); 
+    $(".header-flex").css("background-position", "center"); 
   
-    togglePopup(); // Otvorimo popup
+    togglePopup(); 
   });
 }
 
