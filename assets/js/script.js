@@ -610,7 +610,7 @@ function filterPromotionsByMonth(month) {
 }
 
 function updateCalendarStates(month) {
-  const today = new Date(2024,11,31);
+  const today = new Date(2024,11,27);
   const todaysDate = today.getDate(); 
   const currentMonth = today.toLocaleString("en-US", { month: "long" }); 
   
