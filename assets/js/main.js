@@ -269,6 +269,7 @@ function createEffect(type, config) {
     onComplete: () => {
       container.removeChild(element); // Ukloni element iz DOM-a
       activeEffects--; // Smanji broj aktivnih efekata
+      createEffect(type, config); // Ponovo kreiraj efekat
     },
   });
 }
@@ -296,8 +297,8 @@ function adjustEffectsForScreenSize(effects) {
   effects.forEach(effect => {
     if (isMobile) {
       if (effect.type === 'snowflake') {
-        effect.count =20;
-        effect.config.sizeRange =10;
+        effect.count = 20;
+        effect.config.sizeRange = 8;
         effect.config.minSize = 5;
         effect.config.durationRange = 20;
         effect.config.minDuration = 5;
@@ -390,3 +391,4 @@ adjustEffectsForScreenSize(effects);
 window.addEventListener('resize', function() {
   adjustEffectsForScreenSize(effects);
 });
+
