@@ -1734,7 +1734,9 @@ line-height: 15px;
   }
   .meridian1 {
     display: block !important;
+    display: block !important;
     width: 50%;
+    padding-bottom: 8px;
   }
   #calendar {
     width: 100% !important;
@@ -1812,7 +1814,7 @@ line-height: 15px;
 }  
 #modal .wrapper .content .box {
   width: 375px;
-  padding: 10px;
+  padding: 20px;
 }
 #calendar #day-labels .label {
   font-size: 15px;
