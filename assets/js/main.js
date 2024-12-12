@@ -297,30 +297,30 @@ function adjustEffectsForScreenSize(effects) {
   effects.forEach(effect => {
     if (isMobile) {
       if (effect.type === 'snowflake') {
-        effect.count = 20;
+        effect.count = 30;
         effect.config.sizeRange = 8;
         effect.config.minSize = 5;
-        effect.config.durationRange = 20;
+        effect.config.durationRange = 10;
         effect.config.minDuration = 5;
       } else if (effect.type === 'sparkle') {
-        effect.count = 20;
-        effect.config.sizeRange = 10;
+        effect.count = 5;
+        effect.config.sizeRange = 30;
         effect.config.minSize = 5;
-        effect.config.durationRange = 20;
+        effect.config.durationRange = 10;
         effect.config.minDuration = 5;
       }
     } else {
       if (effect.type === 'snowflake') {
-        effect.count = 40;
+        effect.count = 50;
         effect.config.sizeRange = 20;
         effect.config.minSize = 10;
-        effect.config.durationRange = 20;
+        effect.config.durationRange = 10;
         effect.config.minDuration = 5;
       } else if (effect.type === 'sparkle') {
-        effect.count = 40;
+        effect.count = 50;
         effect.config.sizeRange = 15;
         effect.config.minSize = 5;
-        effect.config.durationRange = 20;
+        effect.config.durationRange = 10;
         effect.config.minDuration = 3;
       }
     }
@@ -333,7 +333,7 @@ function adjustEffectsForScreenSize(effects) {
 const effects = [
   {
     type: 'snowflake',
-    count: 40,
+    count: 50,
     config: {
       symbol: '❄',
       sizeRange: 20,
@@ -350,7 +350,7 @@ const effects = [
   },
   {
     type: 'sparkle',
-    count: 40,
+    count: 50,
     config: {
       symbol: '✦',
       sizeRange: 15,
@@ -387,7 +387,7 @@ const effects = [
 
 adjustEffectsForScreenSize(effects);
 
-// Prilagodite efekte na promeni veličine prozora
+// Uklonite ažuriranje efekata na skrolovanju, ostavite samo za promenu veličine prozora
 window.addEventListener('resize', function() {
   adjustEffectsForScreenSize(effects);
 });
