@@ -238,39 +238,28 @@ gsap.timeline()
 
 // Snow and sparkle animation
 
-
 const container = document.querySelector('.snow-container');
 
-let activeEffects = 0; // Trenutni broj aktivnih efekata
-const maxEffects = 50; // Maksimalan broj efekata u svakom trenutku
-
 function createEffect(type, config) {
-  if (activeEffects >= maxEffects) return; // Ograničenje broja efekata
-  activeEffects++;
-
   const element = document.createElement('div');
   element.classList.add(type);
-  element.textContent = config.symbol || '';
+  element.textContent = config.symbol || ''; 
 
   element.style.left = `${Math.random() * window.innerWidth}px`;
-  element.style.top = `${Math.random() * -window.innerHeight - config.startOffset}px`; // Startna pozicija
+  element.style.top = `${Math.random() * -window.innerHeight - config.startOffset}px`; // Startna pozicija sa gornje strane
   element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
   element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
-  element.style.position = "fixed"; 
+
   container.appendChild(element);
 
   gsap.to(element, {
     y: window.innerHeight + config.offsetY,
     x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
     duration: Math.random() * config.durationRange + config.minDuration,
-    opacity: config.fadeOut ? 0 : element.style.opacity,
+    opacity: config.fadeOut ? 0 : element.style.opacity, 
     ease: "none",
     delay: Math.random() * config.delayRange,
-    onComplete: () => {
-      container.removeChild(element); // Ukloni element iz DOM-a
-      activeEffects--; // Smanji broj aktivnih efekata
-      createEffect(type, config); // Ponovo kreiraj efekat
-    },
+    repeat: -1, // Beskonačno ponavljanje
   });
 }
 
@@ -282,50 +271,14 @@ function initEffects(effectConfigs) {
   });
 }
 
-function clearEffects() {
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
-  }
-  activeEffects = 0; // Resetuj broj aktivnih efekata
-}
-
 function adjustEffectsForScreenSize(effects) {
-  clearEffects(); // Očistite prethodne efekte
-
   const isMobile = window.innerWidth <= 600;
 
-  effects.forEach(effect => {
-    if (isMobile) {
-      if (effect.type === 'snowflake') {
-        effect.count = 30;
-        effect.config.sizeRange = 8;
-        effect.config.minSize = 5;
-        effect.config.durationRange = 10;
-        effect.config.minDuration = 5;
-      } else if (effect.type === 'sparkle') {
-        effect.count = 5;
-        effect.config.sizeRange = 30;
-        effect.config.minSize = 5;
-        effect.config.durationRange = 10;
-        effect.config.minDuration = 5;
-      }
-    } else {
-      if (effect.type === 'snowflake') {
-        effect.count = 50;
-        effect.config.sizeRange = 20;
-        effect.config.minSize = 10;
-        effect.config.durationRange = 10;
-        effect.config.minDuration = 5;
-      } else if (effect.type === 'sparkle') {
-        effect.count = 50;
-        effect.config.sizeRange = 15;
-        effect.config.minSize = 5;
-        effect.config.durationRange = 10;
-        effect.config.minDuration = 3;
-      }
-    }
-  });
+  if (isMobile) {
+    effects = effects.filter(effect => effect.type !== 'snowflake' && effect.type !== 'sparkle');
+  }
 
+  container.innerHTML = ''; // Čisti prethodne elemente iz kontejnera
   initEffects(effects);
 }
 
@@ -333,24 +286,24 @@ function adjustEffectsForScreenSize(effects) {
 const effects = [
   {
     type: 'snowflake',
-    count: 50,
+    count: 40, // Početni broj snežnih čestica
     config: {
       symbol: '❄',
-      sizeRange: 20,
-      minSize: 10,
+      sizeRange: 20, 
+      minSize: 10, 
       opacityRange: 1,
       minOpacity: 0.5,
       offsetY: 50,
-      horizontalRange: 200,
+      horizontalRange: 200, 
       durationRange: 10,
-      minDuration: 10,
+      minDuration:10,
       delayRange: 10,
       startOffset: 100,
     },
   },
   {
     type: 'sparkle',
-    count: 50,
+    count: 40,
     config: {
       symbol: '✦',
       sizeRange: 15,
@@ -387,8 +340,8 @@ const effects = [
 
 adjustEffectsForScreenSize(effects);
 
-// Uklonite ažuriranje efekata na skrolovanju, ostavite samo za promenu veličine prozora
 window.addEventListener('resize', function() {
   adjustEffectsForScreenSize(effects);
 });
+
 
