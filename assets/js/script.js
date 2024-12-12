@@ -31,6 +31,7 @@ const promotions = {
      
     ],
     month: "January",
+    link:"https://meridianbet.rs/sr/kladjenje"
   },
   2: {
     title: "Aviator kiša freebet-ova!",
@@ -44,6 +45,7 @@ const promotions = {
      
     ],
     month: "January",
+    link:"https://meridianbet.rs/"
   },
   3: {
     title: "Igra dana GG&3+",
@@ -215,7 +217,7 @@ const promotions = {
      
     ],
     month: "January",
-
+link:"https://meridianbet.rs/sr/kladjenje"
   },
 
 15: {
@@ -229,7 +231,7 @@ const promotions = {
       "Pripremi se za nezaboravnu zabavu i osvoji spinove! ",     
     ],
     month: "December",
-    
+    link:"https://meridianbet.rs/sr/kladjenje"
   },
   16: {
     title: "Win&Go cashback 100%!",
@@ -635,6 +637,7 @@ function updateCalendarStates(month) {
           )
           .join("")}
       </ul>
+      <a href="${promo.link}" class="promo-link">Registruj se</a>
     `;
 
     // Prikazujemo sadržaj u modalu

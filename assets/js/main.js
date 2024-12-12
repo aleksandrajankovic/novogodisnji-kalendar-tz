@@ -293,13 +293,13 @@ function adjustEffectsForScreenSize(effects) {
       }
     } else {
       if (effect.type === 'snowflake') {
-        effect.count = 40; // Originalni broj čestica za desktop
+        effect.count = 20; // Originalni broj čestica za desktop
         effect.config.sizeRange = 20; // Veća veličina pahulja za desktop
         effect.config.minSize = 10; // Veća minimalna veličina pahulja za desktop
         effect.config.durationRange = 10; // Originalno trajanje za desktop
         effect.config.minDuration = 5; // Originalno minimalno trajanje za desktop
       } else if (effect.type === 'sparkle') {
-        effect.count = 40; // Originalni broj sparkles za desktop
+        effect.count = 20; // Originalni broj sparkles za desktop
         effect.config.sizeRange = 15; // Originalna veličina sparkles
         effect.config.minSize = 5; // Minimalna veličina sparkles
         effect.config.durationRange = 6; // Originalno trajanje za desktop
@@ -316,7 +316,7 @@ function adjustEffectsForScreenSize(effects) {
 const effects = [
   {
     type: 'snowflake',
-    count: 40, // Početni broj snežnih čestica
+    count: 20, // Početni broj snežnih čestica
     config: {
       symbol: '❄',
       sizeRange: 20, // Početna veličina pahulja
@@ -333,7 +333,7 @@ const effects = [
   },
   {
     type: 'sparkle',
-    count: 40,
+    count: 20,
     config: {
       symbol: '✦',
       sizeRange: 15,
