@@ -256,7 +256,7 @@ function createEffect(type, config) {
   element.style.top = `${Math.random() * -window.innerHeight - config.startOffset}px`; // Startna pozicija
   element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
   element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
-
+  element.style.position = "fixed"; 
   container.appendChild(element);
 
   gsap.to(element, {
