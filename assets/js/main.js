@@ -282,13 +282,13 @@ function adjustEffectsForScreenSize(effects) {
         effect.count = 5; 
         effect.config.sizeRange = 8; 
         effect.config.minSize = 5; 
-        effect.config.durationRange = 50; 
+        effect.config.durationRange = 20; 
         effect.config.minDuration = 5; 
       } else if (effect.type === 'sparkle') {
         effect.count = 5; 
         effect.config.sizeRange = 10; 
         effect.config.minSize = 5; 
-        effect.config.durationRange = 50; 
+        effect.config.durationRange = 20; 
         effect.config.minDuration = 5; 
       }
     } else {
@@ -296,13 +296,13 @@ function adjustEffectsForScreenSize(effects) {
         effect.count = 20; 
         effect.config.sizeRange = 20; 
         effect.config.minSize = 10;
-        effect.config.durationRange = 50; 
+        effect.config.durationRange = 20; 
         effect.config.minDuration = 5;
       } else if (effect.type === 'sparkle') {
         effect.count = 20; 
         effect.config.sizeRange = 15; 
         effect.config.minSize = 5; 
-        effect.config.durationRange = 50; 
+        effect.config.durationRange = 20; 
         effect.config.minDuration = 3; 
       }
     }

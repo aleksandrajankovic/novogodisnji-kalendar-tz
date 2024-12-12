@@ -31,7 +31,8 @@ const promotions = {
      
     ],
     month: "January",
-    link:"https://meridianbet.rs/sr/kladjenje"
+    link:"https://meridianbet.rs/sr/kladjenje",
+    button:"Igraj"
   },
   2: {
     title: "Aviator kiša freebet-ova!",
@@ -45,7 +46,8 @@ const promotions = {
      
     ],
     month: "January",
-    link:"https://meridianbet.rs/"
+    link:"https://meridianbet.rs/",
+    button:"Zavrti"
   },
   3: {
     title: "Igra dana GG&3+",
@@ -61,6 +63,8 @@ const promotions = {
      
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   4: {
     title: "Uzleti uz Super Heli!",
@@ -73,6 +77,8 @@ const promotions = {
       "Freebet-ovi se uplacuju  sjutradan do 12h.",     
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   5: {
     title: "Dan za spinove",
@@ -85,6 +91,8 @@ const promotions = {
       "Pripremi se za nezaboravnu zabavu i osvoji spinove! ",     
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   6: {
     title: "Win&Go cashback 100%!",
@@ -98,6 +106,8 @@ const promotions = {
       "Cashback se uplaćuje sjutradan do 15h"
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   7: {
     title: "Sport cashback!",
@@ -112,6 +122,8 @@ const promotions = {
       "Maksimalni iznos bonusa je 20€.",
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   8: {
     title: "Kartica donosi dodatnih 20% bonusa!",
@@ -125,6 +137,8 @@ const promotions = {
      
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   9: {
     title: "Aviator kiša freebet-ova!",
@@ -138,6 +152,8 @@ const promotions = {
      
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   10: {
     title: "Igra dana GG&3+",
@@ -153,6 +169,8 @@ const promotions = {
      
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   11: {
     title: "Uzleti uz Super Heli!",
@@ -165,6 +183,8 @@ const promotions = {
       "Freebet-ovi se uplacuju  sjutradan do 12h.",     
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   12: {
     title: "Dan za spinove",
@@ -177,6 +197,8 @@ const promotions = {
       "Pripremi se za nezaboravnu zabavu i osvoji spinove! ",     
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   13: {
     title: "Win&Go cashback 100%!",
@@ -190,6 +212,8 @@ const promotions = {
       "Cashback se uplaćuje sjutradan do 15h"
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   14: {
     title: "Sport cashback!",
@@ -204,8 +228,10 @@ const promotions = {
       "Maksimalni iznos bonusa je 20€.",
     ],
     month: "January",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
-  15: {
+  15: [{
     title: "Kartica donosi dodatnih 20% bonusa!",
     subtitle: "Uplati depozit putem kartice i čeka te 40% bonusa na prvu uplatu!",
     image: "./assets/images/header/image3.jpg",
@@ -217,10 +243,10 @@ const promotions = {
      
     ],
     month: "January",
-link:"https://meridianbet.rs/sr/kladjenje"
+    link:"https://meridianbet.rs/sr/kladjenje",
+    button:"Igraj"
   },
-
-15: {
+ {
     title: "Dan za spinove",
     subtitle: "Svake nedjelje, uplatom depozita putem SST terminala ili u poslovnici ostvaruješ pravo na 50 besplatnih spinova!",
     image: "./assets/images/header/image7.jpg",
@@ -231,8 +257,9 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Pripremi se za nezaboravnu zabavu i osvoji spinove! ",     
     ],
     month: "December",
-    link:"https://meridianbet.rs/sr/kladjenje"
-  },
+    link:"https://meridianbet.rs/sr/kladjenje",
+    button:"Igraj",
+  }],
   16: {
     title: "Win&Go cashback 100%!",
     subtitle: "Igrajući Win&Go brojeve ne mozeš izgubiti!",
@@ -245,6 +272,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Cashback se uplaćuje sjutradan do 15h"
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Zavrti"
   },
   17: {
     title: "Sport cashback!",
@@ -259,6 +288,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Maksimalni iznos bonusa je 20€.",
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Zavrti",
   },
   
   18: {
@@ -273,6 +304,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
      
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   19: {
     title: "Aviator kiša freebet-ova!",
@@ -286,6 +319,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
      
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   20: {
     title: "Igra dana GG&3+",
@@ -301,6 +336,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
      
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   21: {
     title: "Uzleti uz Super Heli!",
@@ -313,6 +350,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Freebet-ovi se uplacuju  sjutradan do 12h.",     
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   22: {
     title: "Dan za spinove",
@@ -325,6 +364,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Pripremi se za nezaboravnu zabavu i osvoji spinove! ",     
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   23: {
     title: "Win&Go cashback 100%!",
@@ -338,6 +379,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Cashback se uplaćuje sjutradan do 15h"
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   24: {
     title: "Sport cashback!",
@@ -352,6 +395,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Maksimalni iznos bonusa je 20€.",
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   25: {
     title: "Kartica donosi dodatnih 20% bonusa!",
@@ -365,6 +410,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
      
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   26: {
     title: "Aviator kiša freebet-ova!",
@@ -378,6 +425,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
      
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   27: {
     title: "Igra dana GG&3+",
@@ -393,6 +442,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
      
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   28: {
     title: "Uzleti uz Super Heli!",
@@ -405,6 +456,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Freebet-ovi se uplacuju  sjutradan do 12h.",     
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   29: {
     title: "Dan za spinove",
@@ -417,6 +470,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Pripremi se za nezaboravnu zabavu i osvoji spinove! ",     
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   30: {
     title: "Win&Go cashback 100%!",
@@ -430,6 +485,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Cashback se uplaćuje sjutradan do 15h"
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
   31: {
     title: "Sport cashback!",
@@ -444,6 +501,8 @@ link:"https://meridianbet.rs/sr/kladjenje"
       "Maksimalni iznos bonusa je 20€.",
     ],
     month: "December",
+    link:"https://meridianbet.rs/",
+    button:"Igraj"
   },
 };
 
@@ -532,16 +591,26 @@ function togglePopup() {
 
 
 function filterPromotionsByMonth(month) {
-  return Object.keys(promotions)
-    .filter(key => promotions[key].month === month)
-    .reduce((filteredPromotions, key) => {
-      filteredPromotions[key] = promotions[key];
-      return filteredPromotions;
-    }, {});
+  const filteredPromotions = {};
+
+  Object.keys(promotions).forEach(day => {
+    const dayPromotions = promotions[day];
+    if (Array.isArray(dayPromotions)) {
+      dayPromotions.forEach(promo => {
+        if (promo.month === month) {
+          filteredPromotions[day] = promo;
+        }
+      });
+    } else if (dayPromotions.month === month) {
+      filteredPromotions[day] = dayPromotions;
+    }
+  });
+
+  return filteredPromotions;
 }
 
 function updateCalendarStates(month) {
-  const today = new Date(2024, 11, 30);
+  const today = new Date(2024,11,31);
   const todaysDate = today.getDate(); 
   const currentMonth = today.toLocaleString("en-US", { month: "long" }); 
   
@@ -636,7 +705,7 @@ function updateCalendarStates(month) {
           )
           .join("")}
       </ul>
-      <a href="${promo.link}" class="promo-link">Registruj se</a>
+      <a href="${promo.link}" class="promo-link">${promo.button}</a>
     `;
 
     // Prikazujem sadržaj u modalu
