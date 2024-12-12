@@ -296,13 +296,13 @@ function adjustEffectsForScreenSize(effects) {
   effects.forEach(effect => {
     if (isMobile) {
       if (effect.type === 'snowflake') {
-        effect.count = 5;
-        effect.config.sizeRange = 8;
+        effect.count =20;
+        effect.config.sizeRange =10;
         effect.config.minSize = 5;
         effect.config.durationRange = 20;
         effect.config.minDuration = 5;
       } else if (effect.type === 'sparkle') {
-        effect.count = 5;
+        effect.count = 20;
         effect.config.sizeRange = 10;
         effect.config.minSize = 5;
         effect.config.durationRange = 20;
