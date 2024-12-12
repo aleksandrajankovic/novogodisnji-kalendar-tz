@@ -241,13 +241,19 @@ gsap.timeline()
 
 const container = document.querySelector('.snow-container');
 
+let activeEffects = 0; // Trenutni broj aktivnih efekata
+const maxEffects = 50; // Maksimalan broj efekata u svakom trenutku
+
 function createEffect(type, config) {
+  if (activeEffects >= maxEffects) return; // Ograničenje broja efekata
+  activeEffects++;
+
   const element = document.createElement('div');
   element.classList.add(type);
-  element.textContent = config.symbol || ''; 
+  element.textContent = config.symbol || '';
 
   element.style.left = `${Math.random() * window.innerWidth}px`;
-  element.style.top = `${Math.random() * -window.innerHeight - config.startOffset}px`; // Startna pozicija sa gornje strane
+  element.style.top = `${Math.random() * -window.innerHeight - config.startOffset}px`; // Startna pozicija
   element.style.fontSize = `${Math.random() * config.sizeRange + config.minSize}px`;
   element.style.opacity = Math.random() * config.opacityRange + config.minOpacity;
 
@@ -257,10 +263,13 @@ function createEffect(type, config) {
     y: window.innerHeight + config.offsetY,
     x: `+=${Math.random() * config.horizontalRange - config.horizontalRange / 2}`,
     duration: Math.random() * config.durationRange + config.minDuration,
-    opacity: config.fadeOut ? 0 : element.style.opacity, 
+    opacity: config.fadeOut ? 0 : element.style.opacity,
     ease: "none",
     delay: Math.random() * config.delayRange,
-    repeat: -1, // Beskonačno ponavljanje
+    onComplete: () => {
+      container.removeChild(element); // Ukloni element iz DOM-a
+      activeEffects--; // Smanji broj aktivnih efekata
+    },
   });
 }
 
@@ -272,38 +281,46 @@ function initEffects(effectConfigs) {
   });
 }
 
+function clearEffects() {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  activeEffects = 0; // Resetuj broj aktivnih efekata
+}
 
 function adjustEffectsForScreenSize(effects) {
+  clearEffects(); // Očistite prethodne efekte
+
   const isMobile = window.innerWidth <= 600;
 
   effects.forEach(effect => {
     if (isMobile) {
       if (effect.type === 'snowflake') {
-        effect.count = 5; 
-        effect.config.sizeRange = 8; 
-        effect.config.minSize = 5; 
-        effect.config.durationRange = 20; 
-        effect.config.minDuration = 5; 
+        effect.count = 5;
+        effect.config.sizeRange = 8;
+        effect.config.minSize = 5;
+        effect.config.durationRange = 20;
+        effect.config.minDuration = 5;
       } else if (effect.type === 'sparkle') {
-        effect.count = 5; 
-        effect.config.sizeRange = 10; 
-        effect.config.minSize = 5; 
-        effect.config.durationRange = 20; 
-        effect.config.minDuration = 5; 
+        effect.count = 5;
+        effect.config.sizeRange = 10;
+        effect.config.minSize = 5;
+        effect.config.durationRange = 20;
+        effect.config.minDuration = 5;
       }
     } else {
       if (effect.type === 'snowflake') {
-        effect.count = 20; 
-        effect.config.sizeRange = 20; 
+        effect.count = 40;
+        effect.config.sizeRange = 20;
         effect.config.minSize = 10;
-        effect.config.durationRange = 20; 
+        effect.config.durationRange = 20;
         effect.config.minDuration = 5;
       } else if (effect.type === 'sparkle') {
-        effect.count = 20; 
-        effect.config.sizeRange = 15; 
-        effect.config.minSize = 5; 
-        effect.config.durationRange = 20; 
-        effect.config.minDuration = 3; 
+        effect.count = 40;
+        effect.config.sizeRange = 15;
+        effect.config.minSize = 5;
+        effect.config.durationRange = 20;
+        effect.config.minDuration = 3;
       }
     }
   });
@@ -311,29 +328,28 @@ function adjustEffectsForScreenSize(effects) {
   initEffects(effects);
 }
 
-
 // Konfiguracije efekata
 const effects = [
   {
     type: 'snowflake',
-    count: 20, // Početni broj snežnih čestica
+    count: 40,
     config: {
       symbol: '❄',
-      sizeRange: 20, 
-      minSize: 10, 
+      sizeRange: 20,
+      minSize: 10,
       opacityRange: 1,
       minOpacity: 0.5,
       offsetY: 50,
-      horizontalRange: 200, 
+      horizontalRange: 200,
       durationRange: 10,
-      minDuration:10,
+      minDuration: 10,
       delayRange: 10,
       startOffset: 100,
     },
   },
   {
     type: 'sparkle',
-    count: 20,
+    count: 40,
     config: {
       symbol: '✦',
       sizeRange: 15,
@@ -368,11 +384,9 @@ const effects = [
   },
 ];
 
-
 adjustEffectsForScreenSize(effects);
 
-
+// Prilagodite efekte na promeni veličine prozora
 window.addEventListener('resize', function() {
   adjustEffectsForScreenSize(effects);
 });
-
