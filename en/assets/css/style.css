@@ -1414,6 +1414,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-self: center;
+  text-transform: uppercase;
   
 }
 .payments-icons {
@@ -1456,6 +1457,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-transform: uppercase;
 }
 .sponsorships-text h3 {
 font-size: 14px;
