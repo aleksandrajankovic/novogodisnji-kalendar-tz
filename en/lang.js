@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function redirectToLanguage(selectedLang) {
     let pathArray = document.URL.split("/");
-    let secondLevelLocation = pathArray[6] || ""; 
+    let secondLevelLocation = pathArray[5] || ""; 
     
 
     if (selectedLang === "sw") {
